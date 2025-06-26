@@ -1,32 +1,21 @@
 pipeline {
-    agent { label 'build-agent'}
-    tools {
-        maven 'maven'
-    }
+    agent any
+
     stages {
-        stage('veryfying maven') {
-            steps { sh 'mvn -version'
+        stage( Build) {
+            steps {
+                sh 'mvn package'
             }
         }
-        stage('build') {
+        stage( Test ) {
             steps {
-                echo 'building the application!'
-                sh''' 
-                mvn clean package
-                '''
-            }
-        }
-        stage('test') {
-            steps {
-                echo 'testing the application!'
                 sh 'mvn test'
-            }
+           }
         }
-        stage('deploy') {
+        stage( Delopy ) {
             steps {
-                echo 'deploying the application!'
                 sh 'mvn deploy'
             }
         }
-    }
+    }   
 }
