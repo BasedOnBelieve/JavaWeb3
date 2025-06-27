@@ -2,17 +2,17 @@ pipeline {
     agent {label 'build'}
 
     stages {
-        stage( Build) {
+        stage('Build') {
             steps {
                 sh 'mvn clean package'
             }
         }
-        stage( Test ) {
+        stage('Test') {
             steps {
                 sh 'mvn test'
            }
         }
-        stage( Delopy ) {
+        stage('Delopy') {
             steps {
                 sh 'mvn deploy'
             }
