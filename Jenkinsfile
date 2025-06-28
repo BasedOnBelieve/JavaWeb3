@@ -24,7 +24,7 @@ pipeline {
             steps {
                 sh '''
                 wget --user admin --password admin123 http://3.93.200.202:8081/repository/maven-releases/com/web/cal/WebAppCal/0.0.7/WebAppCal-0.0.7.war
-                mv WebAppCal-0.0.7.war apache-tomcat-9.0.106/webapps/
+                mv WebAppCal-0.0.6.war apache-tomcat-9.0.106/webapps/
                 '''
             }
         }
