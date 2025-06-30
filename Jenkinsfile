@@ -1,9 +1,9 @@
 pipeline {
     agent {label 'build'}
-    /*tools {
+    tools {
         jdk 'java-21'
         maven 'maven'
-    }*/
+    }
     stages {
         stage('Checkout')  {
             steps {
