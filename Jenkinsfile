@@ -1,7 +1,8 @@
 pipeline {
     agent {label 'build'}
     tools {
-        jdk 'java-17*'
+        jdk 'java-21'
+        maven 'maven'
     }
     stages {
         stage('Checkout')  {
