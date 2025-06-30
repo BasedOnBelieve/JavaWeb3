@@ -1,7 +1,7 @@
 pipeline {
     agent {label 'build'}
     tools {
-        jdk 'java-17'
+        jdk 'java17'
     }
     stages {
         stage('Checkout')  {
