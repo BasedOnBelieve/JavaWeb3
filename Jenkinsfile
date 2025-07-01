@@ -3,7 +3,7 @@ pipeline {
     /*tools {
         jdk 'java-21'
         maven 'maven'
-    }*/
+    }
     stages {
         stage('Checkout')  {
             steps {
@@ -27,12 +27,12 @@ pipeline {
                 -Dsonar.login=36e47618d8d1cd8c2c907d4834c64b788bf712df
                 '''
             }
-        } */   
+        }    
         stage('deploy') {
             steps {
                 sh 'mvn deploy'
             }   
-        }
+        }*/
         stage('APACHE') {
             steps {
                 withCredentials([usernamePassword(credentialsId:'nexus', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
