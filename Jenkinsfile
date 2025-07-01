@@ -33,5 +33,12 @@ pipeline {
                 sh 'mvn deploy'
             }   
         }
+        stage('deploy') {
+            steps {
+                withCredentials([usernamePassword(credentialsId:'nexus', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                    sh 'wget --user=$USER --password=$PASS http://34.228.160.206:8081/repository/maven-releases/com/web/cal/WebAppCal/0.0.6/WebAppCal-0.0.6.war'
+                }
+            }
+        }    
     }
 }
