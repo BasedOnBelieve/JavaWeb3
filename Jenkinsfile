@@ -23,8 +23,8 @@ pipeline {
                 sonar-scanner \
                 -Dsonar.projectKey=test \
                 -Dsonar.sources=. \
-                -Dsonar.host.url=http://54.159.18.142:9000 \
-                -Dsonar.login=d5263dd9f57793acfcc17a72fd52732a370dc11b
+                -Dsonar.host.url=http://34.228.160.206:9000 \
+                -Dsonar.login=36e47618d8d1cd8c2c907d4834c64b788bf712df
                 '''
             }
         }    
