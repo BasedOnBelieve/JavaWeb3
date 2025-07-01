@@ -17,5 +17,16 @@ pipeline {
                 '''
             }
         }
+        stage('testing app') {
+            steps {
+                sh'''
+                sonar-scanner \
+                -Dsonar.projectKey=test \
+                -Dsonar.sources=. \
+                -Dsonar.host.url=http://54.159.18.142:9000 \
+                -Dsonar.login=d5263dd9f57793acfcc17a72fd52732a370dc11b
+                '''
+            }
+        }    
     }
 }
