@@ -1,0 +1,10 @@
+---
+  # tasks file for ecomm
+- name: Template a file to /etc/ansible/
+  template:
+    src: ansible.j2
+    dest: /etc/ansible/ansible.cfg
+    owner: root
+    group: root
+    mode: '0644
+...

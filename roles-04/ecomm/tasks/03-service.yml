@@ -1,0 +1,12 @@
+---
+- name: start httpd
+  service:
+    name: httpd 
+    state: started
+    enabled: yes
+  when: ansible_pkg_mgr == 'dnf'
+
+- name: start tomcat
+  shell: /etc/apache-tomcat-9.0.108/bin/startup.sh
+  when: ansible_pkg_mgr == 'apt'
+...

@@ -1,0 +1,41 @@
+---
+- name: install git Dnf
+  yum:
+    name: git
+    state: present
+  when: ansible_pkg_mgr == 'dnf'
+
+- name: install git Apt
+  apt:
+    name: git
+    state: present
+  when: ansible_pkg_mgr == 'apt'
+
+- name: install httpd
+  yum:
+    name: httpd
+    state: present
+  when: ansible_pkg_mgr == 'dnf'
+
+- name: install java Apt
+  apt:
+    name: openjdk-11-jdk
+    state: present
+  when: ansible_pkg_mgr == 'apt'
+
+- name: install Tomcat
+  get_url: 
+    url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.108/bin/apache-tomcat-9.0.108.tar.gz
+    dest: /etc/apache.tar.gz
+    mode: '0755'
+  when: ansible_pkg_mgr == 'apt'
+
+- name: unzip tomcat
+  unarchive:
+    src: /etc/apache.tar.gz
+    dest: /etc/
+    remote_src: true
+    mode: '0755'
+  when: ansible_pkg_mgr == 'apt'
+
+...

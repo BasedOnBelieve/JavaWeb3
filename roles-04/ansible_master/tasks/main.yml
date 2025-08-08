@@ -1,0 +1,5 @@
+---
+  # tasks file for ecomm
+- import_tasks: 01-update-pkg-mgrs.yml
+- import_tasks: 00-copy.yml
+...

@@ -1,0 +1,8 @@
+---
+- name: copy webpage to servers
+  git:
+    repo: https://github.com/BasedOnBelieve/ecomm-3.git 
+    dest: /var/www/html
+  when: ansible_pkg_mgr == 'dnf'
+
+...
