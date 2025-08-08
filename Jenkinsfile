@@ -5,14 +5,12 @@ pipeline {
         stage('Checkout')  {
         agent { label 'build'}
             steps {
-                echo 'Cloning repo'
+                sh '''mvn clean test package'''
             }
         }
         stage('Building App') {
             steps {
-                sh'''
-                mvn clean package
-                '''
+                echo 'build complete'
             }
         }
     }    
