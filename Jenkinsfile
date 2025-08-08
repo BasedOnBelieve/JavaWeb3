@@ -5,7 +5,11 @@ pipeline {
         stage('Checkout')  {
         agent { label 'build'}
             steps {
-                sh '''mvn clean test package'''
+                sh '''
+                sudo yum -y install maven
+                mvn clean test package
+                echo 'build complete'
+                '''
             }
         }
         stage('Building App') {
