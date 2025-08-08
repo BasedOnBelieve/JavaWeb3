@@ -1,6 +1,12 @@
 pipeline {
     agent none
     
+environment {
+    Sonar_Key = 'test'
+    Sonar_Host = 'http://54.91.122.194:9000'
+    Sonar_token = '921e3ed5ffb5007f99ec2acdbdfb4f1bb6151572'
+}
+
     stages {
         stage('Checkout')  {
         agent { label 'build'}
@@ -17,9 +23,9 @@ pipeline {
         agent { label 'build'}
             steps {
                sh '''mvn sonar:sonar \
-                -Dsonar.projectKey=test \
-                -Dsonar.host.url=http://54.91.122.194:9000 \
-                -Dsonar.login=921e3ed5ffb5007f99ec2acdbdfb4f1bb6151572
+                -Dsonar.projectKey=${Sonar_Key} \
+                -Dsonar.host.url=${Sonar_Host} \
+                -Dsonar.login=${Sonar_token}
                 '''
             }
         }
