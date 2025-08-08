@@ -9,4 +9,8 @@
 - name: start tomcat
   shell: /etc/apache-tomcat-9.0.108/bin/startup.sh
   when: ansible_pkg_mgr == 'apt'
+
+- name: start tomcat
+  shell: /home/ec2-user/sonarqube-8.8.0.42792/bin/linux-x86-64/sonar.sh start
+  when: ansible_pkg_mgr == 'apt'
 ...

@@ -23,6 +23,12 @@
     state: present
   when: ansible_pkg_mgr == 'apt'
 
+- name: install java Apt
+  apt:
+    name: java-17
+    state: present
+  when: ansible_pkg_mgr == 'dnf'
+
 - name: install Tomcat
   get_url: 
     url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.108/bin/apache-tomcat-9.0.108.tar.gz
@@ -34,6 +40,21 @@
   unarchive:
     src: /etc/apache.tar.gz
     dest: /etc/
+    remote_src: true
+    mode: '0755'
+  when: ansible_pkg_mgr == 'apt'
+
+- name: SonaQube
+  get_url: 
+    url:  https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.8.0.42792.zip
+    dest: /home/ec2-user/sonarqube-8.8.0.42792.zip
+    mode: '0755'
+    when: ansible_pkg_mgr == 'apt'
+
+- name: unzip sonarQube
+  unarchive:
+    src: /home/ec2-user/sonarqube-8.8.0.42792.zip
+    dest: /home/ec2-user
     remote_src: true
     mode: '0755'
   when: ansible_pkg_mgr == 'apt'
