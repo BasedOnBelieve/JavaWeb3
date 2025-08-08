@@ -25,7 +25,7 @@
 
 - name: install java Apt
   apt:
-    name: java-17
+    name: java-11
     state: present
   when: ansible_pkg_mgr == 'dnf'
 
