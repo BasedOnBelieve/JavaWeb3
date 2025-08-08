@@ -14,6 +14,7 @@ pipeline {
             }
         }
         stage('Building App') {
+        agent { label 'build'}
             steps {
                sh '''mvn sonar:sonar \
                 -Dsonar.projectKey=test \
