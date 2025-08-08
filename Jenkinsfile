@@ -6,6 +6,7 @@ pipeline {
         agent { label 'build'}
             steps {
                 sh '''
+                sudo yum -y install git
                 sudo yum -y install maven
                 mvn clean test package
                 echo 'build complete'
